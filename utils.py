@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from urllib.parse import urlparse
 
 def get_json_blocked():
     with open("blocked.json", "r") as f:
@@ -33,3 +34,7 @@ def check_url(url):
         return url
     else:
         return url
+
+def get_domain(url):
+    parsed_url = urlparse(url)
+    return f"{parsed_url.netloc}"
