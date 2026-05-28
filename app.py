@@ -1,5 +1,4 @@
 from flask import Flask, send_from_directory
-import json
 import os
 from utils import write_log, get_data, get_domain, get_json_blocked
 
