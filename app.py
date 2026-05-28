@@ -1,11 +1,11 @@
 from flask import Flask, send_from_directory
 import json
 import os
-from utils import write_log, get_data, get_domain
+from utils import write_log, get_data, get_domain, get_json_blocked
 
 app = Flask(__name__)
 
-blocked = json.loads(open('blocked.json').read())
+blocked = get_json_blocked()
 
 @app.route('/')
 def hello_world():

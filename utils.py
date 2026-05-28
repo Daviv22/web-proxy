@@ -2,6 +2,11 @@ import json
 from datetime import datetime
 import tldextract
 
+def get_json_blocked():
+    with open("blocked.json", "r") as f:
+        blocked = json.load(f)
+    return blocked
+
 def get_json_log():
     with open("log.json", "r") as f:
         log = json.load(f)
