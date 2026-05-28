@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory
 import json
 import os
-from utils import write_log, get_data, tem_protocolo
+from utils import write_log, get_data, get_domain
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ def favicon():
 
 @app.route('/<path:url>')
 def pegar_url(url):
-    domain = tem_protocolo(url)
+    domain = get_domain(url)
     print(domain)
     if domain in blocked["blocked"]:
         write_log(get_data(), domain, "blocked")

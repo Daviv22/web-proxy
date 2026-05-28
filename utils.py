@@ -23,10 +23,8 @@ def get_data():
     data = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}:{data.second}"
     return data
 
-def tem_protocolo(url):
-    if url[7] != "http://" or url[8] != "https://":
+def get_domain(url):
+    if not url.startswith("http://") and not url.startswith("https://"):
         url = "http://" + url
-        domain = tldextract.extract(url)
-        return domain.domain + "." + domain.suffix
-    else:
-        return url
+    domain = tldextract.extract(url)
+    return f"{domain.domain}.{domain.suffix}"
