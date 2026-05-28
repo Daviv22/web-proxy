@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory
 import os
 import requests
-from utils import write_log, get_data, get_url, get_json_blocked
+from utils import write_log, get_data, check_url, get_json_blocked
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ def favicon():
 
 @app.route('/<path:url>')
 def pegar_url(url):
-    url = get_url(url)
+    url = check_url(url)
     print(url)
     if url in blocked["blocked"]:
         write_log(get_data(), url, "blocked")
