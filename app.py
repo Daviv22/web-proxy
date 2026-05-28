@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 import json
-from utils import write_log, get_data
+import os
+from utils import write_log, get_data, tem_protocolo
 
 app = Flask(__name__)
 
@@ -13,14 +14,20 @@ def hello_world():
         lista.append(f'<p>{site}</p>')
     return "".join(lista)
 
-@app.route('/<url>')
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route('/<path:url>')
 def pegar_url(url):
-    if url in blocked["blocked"]:
-        write_log(get_data(), url, "blocked")
+    domain = tem_protocolo(url)
+    print(domain)
+    if domain in blocked["blocked"]:
+        write_log(get_data(), domain, "blocked")
         return f'<p>Site banido</p>'
     else:
-        write_log(get_data(), url, "allowed")
-        return f"<p>{url}</p>"
+        write_log(get_data(), domain, "allowed")
+        return f"<p>{domain}</p>"
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)

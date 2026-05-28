@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+import tldextract
 
 def get_json_log():
     with open("log.json", "r") as f:
@@ -21,3 +22,11 @@ def get_data():
     data = datetime.now()
     data = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}:{data.second}"
     return data
+
+def tem_protocolo(url):
+    if url[7] != "http://" or url[8] != "https://":
+        url = "http://" + url
+        domain = tldextract.extract(url)
+        return domain.domain + "." + domain.suffix
+    else:
+        return url
