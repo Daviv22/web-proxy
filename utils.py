@@ -1,6 +1,5 @@
 import json
 from datetime import datetime
-import tldextract
 
 def get_json_blocked():
     with open("blocked.json", "r") as f:
@@ -28,8 +27,9 @@ def get_data():
     data = f"{data.year}-{data.month}-{data.day} {data.hour}:{data.minute}:{data.second}"
     return data
 
-def get_domain(url):
+def check_url(url):
     if not url.startswith("http://") and not url.startswith("https://"):
-        url = "http://" + url
-    domain = tldextract.extract(url)
-    return f"{domain.domain}.{domain.suffix}"
+        url = "https://" + url
+        return url
+    else:
+        return url
