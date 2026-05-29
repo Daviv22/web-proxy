@@ -18,7 +18,9 @@ def home():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-# ── Sites Bloqueados ────────────────────────────────────────────────────────────
+
+
+# Sites bloqueados
 
 @app.route("/blocked-sites")
 def blocked_sites_page():
@@ -50,7 +52,8 @@ def delete_blocked_site(site_id):
     return redirect(url_for("blocked_sites_page"))
 
 
-# ── Palavrões ────────────────────────────────────────────────────────────────────
+
+# Palavrões
 
 @app.route("/swear-words")
 def swear_words_page():
@@ -94,7 +97,7 @@ def pegar_url(url):
     blocked_sites = [s["url"] for s in get_json_blocked()]
     if domain in blocked_sites:
         write_log(get_data(), domain, "blocked")
-        return f'<p>Site banido</p>'
+        return render_template("forbidden.html")
     else:
         r = requests.get(url)
         filtered_content = filter_content(r.text)
