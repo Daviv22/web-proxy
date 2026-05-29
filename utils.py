@@ -1,4 +1,5 @@
 import json
+import re
 from datetime import datetime
 from urllib.parse import urlparse
 
@@ -11,6 +12,11 @@ def get_json_log():
     with open("log.json", "r") as f:
         log = json.load(f)
     return log
+
+def get_json_words():
+    with open("words.json", "r") as f:
+        words = json.load(f)
+    return words
 
 def write_log(timestamp, url, status):
     log = get_json_log()
@@ -38,3 +44,14 @@ def check_url(url):
 def get_domain(url):
     parsed_url = urlparse(url)
     return f"{parsed_url.netloc}"
+
+def filter_content(content):
+    words = get_json_words()
+
+    filtered_content = content
+
+    for palavrao, substituto in words.items():
+        padrao = re.compile(rf'\b{palavrao}\b', re.IGNORECASE)
+        filtered_content = padrao.sub(substituto, filtered_content)
+
+    return filtered_content
