@@ -115,6 +115,23 @@ def get_domain(url):
     parsed_url = urlparse(url)
     return parsed_url.netloc
 
+
+def is_domain_blocked(target_domain, blocked_list):
+    for blocked_domain in blocked_list:
+        if target_domain == blocked_domain:
+            return True
+
+        # O site acessado é um subdomínio do que está bloqueado?
+        if target_domain.endswith("." + blocked_domain):
+            return True
+
+        # O site bloqueado é um subdomínio do que está sendo acessado?
+        if blocked_domain.endswith("." + target_domain):
+            # Garante que se o bloqueado for 'www.uol.com.br', o 'uol.com.br' também seja.
+            return True
+
+    return False
+
 def filter_content(content):
     words = get_json_words()
     filtered_content = content

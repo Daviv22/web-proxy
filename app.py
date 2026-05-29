@@ -4,7 +4,7 @@ import uuid
 import requests
 from utils import (write_log, get_data, check_url, get_json_blocked, delete_blocked_site_json,
                    filter_content, get_json_words, write_blocked_site, edit_blocked_sites, write_swear_word,
-                   edit_swear_word_json, delete_swear_word_json, get_domain)
+                   edit_swear_word_json, delete_swear_word_json, get_domain, is_domain_blocked)
 
 app = Flask(__name__)
 
@@ -95,7 +95,7 @@ def pegar_url(url):
     url = check_url(url)
     domain = get_domain(url)
     blocked_sites = [s["url"] for s in get_json_blocked()]
-    if domain in blocked_sites:
+    if is_domain_blocked(domain, blocked_sites):
         write_log(get_data(), domain, "blocked")
         return render_template("forbidden.html")
     else:
