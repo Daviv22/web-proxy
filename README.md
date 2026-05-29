@@ -113,7 +113,7 @@ web-proxy/
 
 ## Vantagens e dificuldades
 
-> *As maiores vantagens de trabalhar com o Flask sem dúvida é o aproveitamento da sintaxe e outras bibliotecas do Python, como a Requests, urllib.parse, etc, bem como a leveza e facilidade do próprio framework. As maiores dificuldades no trabalho foi a criação de um sistema centralizado CRUD nos arquivos JSONs e a checagem da URL *
+> *As maiores vantagens de trabalhar com o Flask sem dúvida é o aproveitamento da sintaxe e outras bibliotecas do Python, como a Requests, urllib.parse, etc, bem como a leveza e facilidade do próprio framework. As maiores dificuldades no trabalho foi a criação de um sistema centralizado CRUD nos arquivos JSONs e a checagem da URL*
 
 ---
 
