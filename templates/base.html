@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}meu-proxy.com{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex items-center justify-between">
+
+        <a href="{{ url_for('home') }}" class="flex items-center gap-3 group">
+          <div class="bg-indigo-600 p-2 rounded-lg group-hover:bg-indigo-700 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-gray-900">meu-proxy.com</h1>
+            <p class="text-sm text-gray-500">Navegação Segura e Controlada</p>
+          </div>
+        </a>
+
+        {% if active_page != 'home' %}
+        <nav class="flex gap-4">
+          <a href="{{ url_for('blocked_sites_page') }}"
+             class="px-4 py-2 rounded-lg font-medium transition-colors
+                    {{ 'bg-indigo-600 text-white' if active_page == 'blocked_sites' else 'text-gray-700 hover:bg-gray-100' }}">
+            Sites Bloqueados
+          </a>
+          <a href="{{ url_for('swear_words_page') }}"
+             class="px-4 py-2 rounded-lg font-medium transition-colors
+                    {{ 'bg-indigo-600 text-white' if active_page == 'swear_words' else 'text-gray-700 hover:bg-gray-100' }}">
+            Palavrões
+          </a>
+        </nav>
+        {% endif %}
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-600">
+    <p>© 2026 meu-proxy.com - Protegendo sua navegação</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

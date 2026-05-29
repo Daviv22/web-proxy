@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Início – meu-proxy.com{% endblock %}
+
+{% block content %}
+<div class="space-y-12">
+
+  <!-- Hero -->
+  <div class="text-center space-y-4">
+    <h2 class="text-4xl font-bold text-gray-900">Controle Total da Sua Navegação</h2>
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      Escolha como você deseja proteger e personalizar sua experiência online
+    </p>
+  </div>
+
+  <!-- Feature Cards -->
+  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+    <!-- Blocked Sites -->
+    <div class="bg-white rounded-xl border-2 border-gray-200 hover:shadow-lg hover:border-indigo-300 transition-all">
+      <div class="p-6 pb-0">
+        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-600" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900">Sites Bloqueados</h3>
+        <p class="text-gray-500 mt-1">Adicione e gerencie sites que você deseja bloquear completamente</p>
+      </div>
+      <div class="p-6 space-y-4">
+        <ul class="space-y-2 text-gray-700">
+          <li class="flex items-start gap-2"><span class="text-indigo-600 mt-1">✓</span> Bloqueie sites indesejados ou perigosos</li>
+          <li class="flex items-start gap-2"><span class="text-indigo-600 mt-1">✓</span> Visualize e edite sua lista de bloqueios</li>
+          <li class="flex items-start gap-2"><span class="text-indigo-600 mt-1">✓</span> Remova sites quando necessário</li>
+        </ul>
+        <a href="{{ url_for('blocked_sites_page') }}"
+           class="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+          Gerenciar Sites Bloqueados
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Swear Words -->
+    <div class="bg-white rounded-xl border-2 border-gray-200 hover:shadow-lg hover:border-indigo-300 transition-all">
+      <div class="p-6 pb-0">
+        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-600" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900">Filtro de Palavrões</h3>
+        <p class="text-gray-500 mt-1">Configure palavras impróprias para serem substituídas por versões censuradas</p>
+      </div>
+      <div class="p-6 space-y-4">
+        <ul class="space-y-2 text-gray-700">
+          <li class="flex items-start gap-2"><span class="text-indigo-600 mt-1">✓</span> Adicione palavrões e suas versões censuradas</li>
+          <li class="flex items-start gap-2"><span class="text-indigo-600 mt-1">✓</span> Visualize e edite sua lista de filtros</li>
+          <li class="flex items-start gap-2"><span class="text-indigo-600 mt-1">✓</span> Mantenha o conteúdo apropriado</li>
+        </ul>
+        <a href="{{ url_for('swear_words_page') }}"
+           class="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+          Gerenciar Filtro de Palavrões
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- How it works -->
+  <div class="bg-white rounded-lg p-8 max-w-4xl mx-auto shadow-md">
+    <h3 class="text-2xl font-bold text-gray-900 mb-4">Como Funciona?</h3>
+    <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+      <div>
+        <h4 class="font-semibold text-lg mb-2 text-indigo-600">1. Escolha sua função</h4>
+        <p>Selecione entre bloquear sites ou filtrar palavrões conforme sua necessidade.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg mb-2 text-indigo-600">2. Adicione suas regras</h4>
+        <p>Configure os sites ou palavras que deseja controlar em sua navegação.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg mb-2 text-indigo-600">3. Gerencie facilmente</h4>
+        <p>Edite ou remova itens da lista a qualquer momento com poucos cliques.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg mb-2 text-indigo-600">4. Navegue protegido</h4>
+        <p>Suas configurações ficam salvas e ativas durante toda sua navegação.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
