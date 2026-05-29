@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory
 import os
 import requests
-from utils import write_log, get_data, check_url, get_json_blocked, get_domain
+from utils import write_log, get_data, check_url, get_json_blocked, get_domain, filter_content
 
 app = Flask(__name__)
 
@@ -27,8 +27,13 @@ def pegar_url(url):
         return f'<p>Site banido</p>'
     else:
         r = requests.get(url)
-        write_log(get_data(), get_domain(url), "allowed")
-        return r.text
+        filtered_content = filter_content(r.text)
+        if filtered_content != r.text:
+            write_log(get_data(), get_domain(url), "filtered")
+            return filtered_content
+        else:
+            write_log(get_data(), get_domain(url), "allowed")
+            return r.text
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
