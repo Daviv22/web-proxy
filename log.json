@@ -1,0 +1,97 @@
+[
+   {
+      "timestamp": "2026-05-29 01:34:58",
+      "url": "www.google.com",
+      "action": "blocked"
+   },
+   {
+      "timestamp": "2026-05-29 01:35:46",
+      "url": "daviv22.github.io",
+      "action": "filtered"
+   },
+   {
+      "timestamp": "2026-05-29 01:35:47",
+      "url": "daviv22.github.io",
+      "action": "filtered"
+   },
+   {
+      "timestamp": "2026-05-29 01:35:47",
+      "url": "daviv22.github.io",
+      "action": "allowed"
+   },
+   {
+      "timestamp": "2026-05-29 01:36:02",
+      "url": "daviv22.github.io",
+      "action": "allowed"
+   },
+   {
+      "timestamp": "2026-05-29 01:37:32",
+      "url": "www.google.com",
+      "action": "blocked"
+   },
+   {
+      "timestamp": "2026-05-29 01:37:35",
+      "url": "www.google.com",
+      "action": "blocked"
+   },
+   {
+      "timestamp": "2026-05-29 01:40:42",
+      "url": "https://daviv22.github.io/site-de-palavroes/",
+      "action": "filtered"
+   },
+   {
+      "timestamp": "2026-05-29 01:40:43",
+      "url": "https://daviv22.github.io/site-de-palavroes/css/style.css",
+      "action": "allowed"
+   },
+   {
+      "timestamp": "2026-05-29 01:40:43",
+      "url": "https://daviv22.github.io/site-de-palavroes/js/script.js",
+      "action": "filtered"
+   },
+   {
+      "timestamp": "2026-05-29 01:41:05",
+      "url": "https://daviv22.github.io/site-de-palavroes/https://www.google.com",
+      "action": "allowed"
+   },
+   {
+      "timestamp": "2026-05-29 01:45:15",
+      "url": "www.google.com",
+      "action": "blocked"
+   },
+   {
+      "timestamp": "2026-05-29 01:45:24",
+      "url": "https://daviv22.github.io/site-de-palavroes/https://www.google.com",
+      "action": "allowed"
+   },
+   {
+      "timestamp": "2026-05-29 01:47:28",
+      "url": "https://daviv22.github.io/site-de-palavroes/",
+      "action": "filtered"
+   },
+   {
+      "timestamp": "2026-05-29 01:47:29",
+      "url": "https://daviv22.github.io/site-de-palavroes/js/script.js",
+      "action": "filtered"
+   },
+   {
+      "timestamp": "2026-05-29 01:47:29",
+      "url": "https://daviv22.github.io/site-de-palavroes/css/style.css",
+      "action": "allowed"
+   },
+   {
+      "timestamp": "2026-05-29 01:47:31",
+      "url": "www.google.com",
+      "action": "blocked"
+   },
+   {
+      "timestamp": "2026-05-29 01:49:43",
+      "url": "www.google.com",
+      "action": "blocked"
+   },
+   {
+      "timestamp": "2026-05-29 01:50:36",
+      "url": "www.google.com",
+      "action": "blocked"
+   }
+]
