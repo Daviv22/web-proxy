@@ -16,7 +16,7 @@ def home():
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(os.path.join(app.root_path, 'static'),'vpn.png', mimetype='image/png')
 
 
 
@@ -102,10 +102,10 @@ def pegar_url(url):
         r = requests.get(url)
         filtered_content = filter_content(r.text)
         if filtered_content != r.text:
-            write_log(get_data(), domain, "filtered")
+            write_log(get_data(), url, "filtered")
             return filtered_content
         else:
-            write_log(get_data(), domain, "allowed")
+            write_log(get_data(), url, "allowed")
             return r.text
 
 if __name__ == '__main__':
